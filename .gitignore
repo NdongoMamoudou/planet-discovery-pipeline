@@ -1,20 +1,12 @@
-# Ignorer le Dockerfile (si tu n'as pas besoin de versionner ce fichier)
-Dockerfile
-
-# Ignorer le fichier docker-compose.yml
-docker-compose.yml
-
-# Ignorer le dossier de configuration (par exemple)
-conf/
-
-# Ignorer les répertoires des dépendances (comme le dossier web)
-web/
-
-# Ignorer les fichiers Python compilés et autres fichiers de cache
-__pycache__/
-*.pyc
-*.pyo
-*.log
-
-# Ignorer les fichiers de configuration spécifiques à l'environnement
+# Ignorer les fichiers sensibles ou temporaires
 .env
+*.log
+*.tmp
+
+# Ignorer les répertoires de configuration sensibles
+conf/
+config/
+hadoop.env
+
+# Ne pas ignorer les fichiers Dockerfile et docker-compose.yml
+# (ne rien ajouter ici pour ces fichiers)
