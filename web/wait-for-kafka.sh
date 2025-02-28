@@ -1,11 +1,15 @@
-#!/bin/bash
+# #!/bin/bash
 
-# Attente que Kafka soit disponible sur le port 9092
-while ! nc -z kafka 9092; do
-  echo "En attente de Kafka..."
-  sleep 2
-done
+# # Attendre que Kafka soit prêt
+# KAFKA_HOST="kafka"
+# KAFKA_PORT="9092"
 
-# Une fois Kafka prêt, lancer l'application Flask
-echo "Kafka est prêt, démarrage de Flask..."
-python /app/app.py
+# echo "En attente que Kafka soit prêt..."
+
+# # Boucle pour tester la connexion à Kafka toutes les 5 secondes
+# while ! nc -z $KAFKA_HOST $KAFKA_PORT; do
+#   echo "Kafka n'est pas prêt, réessayer..."
+#   sleep 10
+# done
+
+# echo "Kafka est prêt!"
