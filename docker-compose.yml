@@ -63,7 +63,7 @@ services:
       - "8080:8080"
       - "7077:7077"
     volumes:
-      - ./app:/app
+      - ./spark_web:/app/spark_web
       - ./conf:/opt/hive/conf
     environment:
       - INIT_DAEMON_STEP=setup_spark
@@ -103,21 +103,21 @@ services:
       - "2181:2181"
 
   python-producer:
-    build: ./web
+    build: ./kafka_web
     container_name: python-producer
     depends_on:
       - kafka
       - zookeeper
     environment:
       - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-    command: [ "python", "-u", "app.py" ]
+    command: [ "python", "-u", "producer.py" ]
 
     restart: always
 
   # Service pour le consommateur
   python-consumer:
 
-    build: ./web
+    build: ./kafka_web
     container_name: python-consumer
     depends_on:
       - kafka
@@ -134,7 +134,7 @@ services:
     ports:
       - "5550:5550"
     volumes:
-      - ./web:/app
+      - ./kafka_web:/app/kafka_web
     environment:
       - FLASK_ENV=development
     depends_on:
