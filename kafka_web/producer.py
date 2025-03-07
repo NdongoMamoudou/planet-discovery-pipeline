@@ -25,3 +25,5 @@ def send_discovery_to_kafka(data):
     except Exception as e:
         print(f"Erreur lors de l'envoi à Kafka: {e}")
         raise
+
+
